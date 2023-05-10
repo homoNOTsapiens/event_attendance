@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Welcome! Please sign in!{% endblock %}
+{% block title %}Добро пожаловать!Пожалуйста войдите в учётную запись.{% endblock %}
 
 {% block content %}
 
@@ -14,11 +14,11 @@
 {% endif %}
 
 <div class="measure-wide">
-    <h1 class="fw3">Welcome to {{ event.name }}! Let&rsquo;s get you signed in!</h1>
+    <h1 class="fw3">Добро пожаловать в  {{ event.name }}! Давайте зайдём в вашу учётную запись!</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form }}
-    <input type="submit" value="Sign in" class="b--none br2 pa3 ph4 bg-dark-red white dib tc fw4 mv4" />
+    <input type="submit" value="Войти" class="b--none br2 pa3 ph4 bg-dark-red white dib tc fw4 mv4" />
 </div>
 
 

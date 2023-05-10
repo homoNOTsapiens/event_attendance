@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Create New Event{% endblock %}
+{% block title %}Создать мероприятие{% endblock %}
 
 {% block content %}
 
@@ -8,7 +8,7 @@
     <form action='' method='POST'>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type='submit' value='Create Event' class="db mt4 bg-dark-red b--none pa3 white br2" />
+        <input type='submit' value='Создать мероприятие' class="db mt4 bg-dark-red b--none pa3 white br2" />
     </form>
 
 {% endblock %}
