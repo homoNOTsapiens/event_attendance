@@ -19,10 +19,14 @@ import os
 import sys
 
 import dj_database_url
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'config/locale')
+]
 
 
 # Quick-start development settings - unsuitable for production
@@ -113,7 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
-
+LANGUAGES = [
+    ('ru', _('Russian'))
+]
 LANGUAGE_CODE = 'ru-RU'
 TIME_ZONE = 'UTC'
 USE_I18N = True
