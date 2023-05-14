@@ -11,10 +11,4 @@ class Migration(migrations.Migration):
         ('signin_sheets', '0001_initial'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='eventparticipant',
-            name='city',
-            field=models.CharField(blank=True, max_length=255),
-        ),
-    ]
+
