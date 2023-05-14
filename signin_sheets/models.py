@@ -16,12 +16,12 @@ class Event(models.Model):
     event_admin = models.ForeignKey(settings.AUTH_USER_MODEL,
                                     on_delete=models.CASCADE,
                                     null=True)
-    name = models.CharField(max_length=255,verbose_name='НАЗВАНИЕ')
-    datetime = models.DateTimeField(default=now, blank=True)
-    description = models.CharField(blank=True, max_length=255)
-    address = models.CharField(blank=True, max_length=255)
-    gps_loc = models.CharField(blank=True, max_length=255)
-    duration = models.CharField(blank=True,max_length=255)
+    name = models.CharField(max_length=255,verbose_name='Название:')
+    datetime = models.DateTimeField(default=now, blank=True,verbose_name='Дата и время:')
+    description = models.CharField(blank=True, max_length=255,verbose_name='Описание:')
+    address = models.CharField(blank=True, max_length=255,verbose_name='Адрес:')
+    gps_loc = models.CharField(blank=True, max_length=255,verbose_name='GPS локация')
+    duration = models.CharField(blank=True,max_length=255,verbose_name='Длительность')
 
     def __str__(self):
         return f'{self.name} ({self.datetime})'

@@ -42,9 +42,6 @@ class EventCreateView(LoginRequiredMixin, CreateView):
 
     model = Event
     fields = ['name','datetime','description','address','gps_loc','duration']
-    labels = {
-        'name': _('Writer'),
-        }
     def form_valid(self, form):
         resp = super().form_valid(form)
         self.object.event_admin = get_user(self.request)
