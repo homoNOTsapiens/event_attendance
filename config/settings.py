@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'signin_sheets',
 ]
 DATETIME_FORMAT = '%Y-%m-%d %H:%M'
+USE_L10N = False
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
