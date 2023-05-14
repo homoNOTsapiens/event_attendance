@@ -3,6 +3,7 @@ import datetime
 from django.conf import settings
 from django.db import models
 from django.shortcuts import reverse
+from django.utils.timezone import now
 
 from localflavor.us.models import (
     PhoneNumberField,
@@ -16,7 +17,7 @@ class Event(models.Model):
                                     on_delete=models.CASCADE,
                                     null=True)
     name = models.CharField(max_length=255)
-    event_datetime = models.DateTimeField(default=datetime.now, blank=True)
+    event_datetime = models.DateTimeField(default=now, blank=True)
     description = models.CharField()
     address = models.CharField()
     gpc_loc = models.CharField()
