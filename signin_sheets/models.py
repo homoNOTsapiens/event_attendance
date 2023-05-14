@@ -18,10 +18,10 @@ class Event(models.Model):
                                     null=True)
     name = models.CharField(max_length=255)
     event_datetime = models.DateTimeField(default=now, blank=True)
-    description = models.CharField()
-    address = models.CharField()
-    gpc_loc = models.CharField()
-    event_duration = models.CharField()
+    description =models.CharField(blank=True, max_length=255),
+    address = models.CharField(blank=True, max_length=255),
+    gpc_loc = models.CharField(blank=True, max_length=255),
+    event_duration = models.CharField(blank=True, max_length=255),
 
     def __str__(self):
         return f'{self.name} ({self.event_datetime})'
