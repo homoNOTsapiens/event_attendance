@@ -40,7 +40,7 @@ class EventCreateView(LoginRequiredMixin, CreateView):
     """Create a new event."""
 
     model = Event
-    fields = ['name', 'event_date']
+    fields = ['name', 'event_datetime',"description","address","event_duration"]
 
     def form_valid(self, form):
         resp = super().form_valid(form)
