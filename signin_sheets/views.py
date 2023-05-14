@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (c) 2017 Jeremy Low
-import csv
 import unicodecsv as csv
 from django.conf import settings
 from django.contrib import messages
