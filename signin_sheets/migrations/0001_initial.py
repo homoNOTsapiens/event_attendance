@@ -24,7 +24,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
-                ('event_datetime', models.DateTimeField(blank=True, default=now)),
+                ('datetime', models.DateTimeField(blank=True, default=now)),
+                ('description',models.CharField(blank=True, max_length=255)),
+                ('address', models.CharField(blank=True, max_length=255)),
+                ('gps_loc',models.CharField(blank=True, max_length=255)),
+                ('event_duration',models.CharField(blank=True, max_length=255)),
                 ('event_admin', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
