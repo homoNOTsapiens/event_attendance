@@ -32,7 +32,7 @@ class Event(models.Model):
 
 class EventParticipant(models.Model):
     fio = models.CharField(max_length=255)
-    login = models.CharField(blank=True)
+    login = models.CharField(blank=True,max_length=255)
     group = models.CharField(max_length=255, blank=True)
     gps = models.CharField(max_length=255, blank=True)
     event = models.ForeignKey(Event, null=True)
