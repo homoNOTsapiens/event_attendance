@@ -17,7 +17,7 @@ class Event(models.Model):
                                     on_delete=models.CASCADE,
                                     null=True)
     name = models.CharField(max_length=255,verbose_name='Название:')
-    datetime = models.DateTimeField(format(['%Y-%m-%d %H:%M']),default=now, blank=True,verbose_name='Дата и время:')
+    datetime = models.DateTimeField(default=now, blank=True,verbose_name='Дата и время:')
     description = models.CharField(blank=True, max_length=255,verbose_name='Описание:')
     address = models.CharField(blank=True, max_length=255,verbose_name='Адрес:')
     gps_loc = models.CharField(blank=True, max_length=255,verbose_name='GPS локация')
