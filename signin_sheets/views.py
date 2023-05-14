@@ -42,14 +42,14 @@ class EventCreateView(LoginRequiredMixin, CreateView):
 
     model = Event
     fields = ['name','datetime','description','address','gps_loc','duration']
+    fields['name'].label="Название:"
+    fields['datetime'].label="Дата и время:"
+    fields['description']="Описание"
+    fields['address'].label="Адрес:"
+    fields['name'].label="GPS координаты:"
+    fields['duration'].label="Длительность мероприятия:"
     def form_valid(self, form):
         resp = super().form_valid(form)
-        self.fields['name'].label="Название:"
-        self.fields['datetime'].label="Дата и время:"
-        self.fields['description']="Описание"
-        self.fields['address'].label="Адрес:"
-        self.fields['name'].label="GPS координаты:"
-        self.fields['duration'].label="Длительность мероприятия:"
         self.object.event_admin = get_user(self.request)
         self.object.save()
         return resp
