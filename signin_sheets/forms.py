@@ -23,13 +23,8 @@ class ParticipantSigninForm(ModelForm):
 
         model = EventParticipant
         fields = [
-            'first_name',
-            'last_name',
-            'email',
-            'street_one',
-            'street_two',
-            'city',
-            'state',
-            'zip_code',
-            'telephone_number',
+            'fio',
+            'group',
+            'gps',
+            'event',
         ]
