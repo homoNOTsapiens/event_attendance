@@ -16,7 +16,7 @@ class Event(models.Model):
     event_admin = models.ForeignKey(settings.AUTH_USER_MODEL,
                                     on_delete=models.CASCADE,
                                     null=True)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,verbose_name='НАЗВАНИЕ')
     datetime = models.DateTimeField(default=now, blank=True)
     description = models.CharField(blank=True, max_length=255)
     address = models.CharField(blank=True, max_length=255)
