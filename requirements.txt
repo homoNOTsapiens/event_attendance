@@ -7,7 +7,7 @@
 dj-database-url==0.4.2
 django-localflavor==1.5.1
 django==1.11.29
-unicodecsv=0.14.1
+unicodecsv==0.14.1
 gunicorn==19.7.1
 psycopg2==2.7.1
 pytz==2017.2              # via django
