@@ -17,14 +17,14 @@ class Event(models.Model):
                                     on_delete=models.CASCADE,
                                     null=True)
     name = models.CharField(max_length=255)
-    event_datetime = models.DateTimeField(default=now, blank=True)
+    datetime = models.DateTimeField(default=now, blank=True)
     description =models.CharField(blank=True, max_length=255),
     address = models.CharField(blank=True, max_length=255),
-    gpc_loc = models.CharField(blank=True, max_length=255),
+    gps_loc = models.CharField(blank=True, max_length=255),
     event_duration = models.CharField(blank=True, max_length=255),
 
     def __str__(self):
-        return f'{self.name} ({self.event_datetime})'
+        return f'{self.name} ({self.datetime})'
 
     def get_absolute_url(self):
         return reverse('event-detail', kwargs={'pk': self.pk})
