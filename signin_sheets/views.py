@@ -3,7 +3,7 @@
 
 # Copyright (c) 2017 Jeremy Low
 import csv
-
+import unicodecsv as csv
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user, logout
@@ -42,6 +42,7 @@ class EventCreateView(LoginRequiredMixin, CreateView):
 
     model = Event
     fields = ['name','datetime','description','address','gps_loc','duration']
+
     def form_valid(self, form):
         resp = super().form_valid(form)
         self.object.event_admin = get_user(self.request)
