@@ -2,7 +2,7 @@
 {% load i18n %}
 <head>
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-<title>Event-attendance - {% block title %}{% endblock %}</title>
+<title>{% block title %}{% endblock %}</title>
 <style>
     html {
         background-color: #393e41;
@@ -70,7 +70,7 @@
 <body>
 
 <nav class="w-100 fixed pv3 ph4">
-    <a href="/" class="fw4 ttu f6 white link mr3"><span class="dark-red dib mr2">&#127801;</span>Home</a>
+    <a href="/" class="fw4 ttu f6 white link mr3"><span class="dark-red dib mr2">&#127801;</span>EVENT ATTENDANCE</a>
     {% if not request.user.is_anonymous %}
         <a href="{% url 'event-list' %}" class="fw4 ttu f6 white link mr3">Мои мероприятия</a>
         <a href="{% url 'event-create' %}" class="fw4 ttu f6 white link mr3">Новое мероприятие</a>

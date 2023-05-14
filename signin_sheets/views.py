@@ -88,7 +88,7 @@ def event_signin(request, *args, **kwargs):
             user = form.save()
             user.event = Event.objects.get(pk=kwargs.get('pk'))
             user.save()
-            messages.success(request, "Your information has been saved.<br>Thanks for signing in!")
+            messages.success(request, "Ваша информация сохранена.<br>")
 
             return redirect(reverse('event-signin',
                                     kwargs={'pk': kwargs.get('pk')}))
@@ -119,27 +119,17 @@ def event_to_csv(request, *args, **kwargs):
 
     writer = csv.writer(response)
     writer.writerow([
-            'first_name',
-            'last_name',
-            'email',
-            'street_one',
-            'street_two',
-            'city',
-            'state',
-            'zip_code',
-            'telephone_number',
+            'fio',
+            'group',
+            'gps',
+            'event',
         ])
     for part in participants:
         writer.writerow([
-            part.first_name,
-            part.last_name,
-            part.email,
-            part.street_one,
-            part.street_two,
-            part.city,
-            part.state,
-            part.zip_code,
-            part.telephone_number,])
+            part.fio,
+            part.group,
+            part.gps,
+            part.event,])
     return response
 
 
