@@ -14,6 +14,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect, reverse
 
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, FormView, DeleteView
 
@@ -40,10 +41,15 @@ class EventCreateView(LoginRequiredMixin, CreateView):
     """Create a new event."""
 
     model = Event
-    fields = ['name','datetime','description','address','gps_loc']
-
+    fields = ['name','datetime','description','address','gps_loc','duration']
     def form_valid(self, form):
         resp = super().form_valid(form)
+        self.fields['name'].label="Название:"
+        self.fields['datetime'].label="Дата и время:"
+        self.fields['description']="Описание"
+        self.fields['address'].label="Адрес:"
+        self.fields['name'].label="GPS координаты:"
+        self.fields['duration'].label="Длительность мероприятия:"
         self.object.event_admin = get_user(self.request)
         self.object.save()
         return resp
