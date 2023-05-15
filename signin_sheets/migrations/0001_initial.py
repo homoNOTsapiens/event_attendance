@@ -36,9 +36,9 @@ class Migration(migrations.Migration):
             name='EventParticipant',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fio', models.CharField(max_length=255)),
-                ('login', models.CharField(blank=True, max_length=255)),
-                ('group', models.CharField(blank=True, max_length=255)),
+                ('fio', models.CharField(max_length=255,verbose_name='ФИО:')),
+                ('login', models.CharField(blank=True, max_length=255,verbose_name='Логин:')),
+                ('group', models.CharField(blank=True, max_length=255,verbose_name='Группа')),
                 ('gps', models.CharField(blank=True, max_length=255)),
                 ('event', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='signin_sheets.Event')),
             ],
