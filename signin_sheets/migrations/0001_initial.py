@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('login', models.CharField(blank=True, max_length=255,verbose_name='Логин:')),
                 ('group', models.CharField(blank=True, max_length=255,verbose_name='Группа')),
                 ('gps', models.CharField(blank=True, max_length=255)),
-                ('event', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='signin_sheets.Event')),
+                ('event', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='signin_sheets.Event',verbose_name='Мероприятие:')),
             ],
         ),
     ]

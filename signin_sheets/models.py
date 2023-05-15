@@ -35,6 +35,6 @@ class EventParticipant(models.Model):
     login = models.CharField(blank=True,max_length=255,verbose_name='Логин:')
     group = models.CharField(max_length=255, blank=True,verbose_name='Группа:')
     gps = models.CharField(max_length=255, blank=True)
-    event = models.ForeignKey(Event, null=True)
+    event = models.ForeignKey(Event, null=True,verbose_name='Мероприятие:')
     def __str__(self):
         return f'{self.first_name} {self.last_name or ""} ({self.email or "[No Email Given]"})'
