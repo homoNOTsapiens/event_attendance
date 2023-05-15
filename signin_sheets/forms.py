@@ -24,7 +24,7 @@ class ParticipantSigninForm(ModelForm):
         model = EventParticipant
         fields = [
             'fio',
+            'login'
             'group',
-            'gps',
             'event',
         ]
