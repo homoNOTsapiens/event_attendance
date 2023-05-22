@@ -126,10 +126,10 @@ def event_to_csv(request, *args, **kwargs):
         ])
     for part in participants:
         writer.writerow([
-            str(part.fio).decode("cp1251"),
-            str(part.group).decode("cp1251"),
-            str(part.gps).decode("cp1251"),
-            str(part.event).decode("cp1251"),])
+            str(part.fio),
+            str(part.group),
+            str(part.gps),
+            str(part.event),])
     return response
 
 
