@@ -119,10 +119,10 @@ def event_to_csv(request, *args, **kwargs):
 
     writer = csv.writer(response,delimiter=';')
     writer.writerow([
-            'ФИО',
-            'Группа',
+            'Р¤РРћ'.encode('utf-8').decode('cp1251'),
+            'Р“СЂСѓРїРїР°',
             'GPS',
-            'Мероприятие',
+            'РњРµСЂРѕРїСЂРёСЏС‚РёРµ',
         ])
     for part in participants:
         writer.writerow([
