@@ -22,7 +22,6 @@ class Event(models.Model):
     address = models.CharField(blank=True, max_length=255,verbose_name='Адрес:')
     gps_loc = models.CharField(blank=True, max_length=255,verbose_name='GPS локация')
     duration = models.CharField(blank=True,max_length=255,verbose_name='Длительность')
-    groups = models.CharField(blank=True,max_length=255,verbose_name='Группы:')
 
     def __str__(self):
         return f'{self.name} ({self.datetime})'
