@@ -3,7 +3,6 @@
 
 # Copyright (c) 2017 Jeremy Low
 import unicodecsv as csv
-import pandas as pd
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user, logout
