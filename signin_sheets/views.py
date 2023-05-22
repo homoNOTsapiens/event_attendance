@@ -119,17 +119,17 @@ def event_to_csv(request, *args, **kwargs):
 
     writer = csv.writer(response,delimiter=';')
     writer.writerow([
-            'Ğ¤Ğ˜Ğ'.encode('utf-8').decode('utf-8'),
-            'Ğ“Ñ€ÑƒĞ¿Ğ¿Ñ‹'.encode("utf-8"),
-            'GPS'.encode("utf-8"),
-            'ĞœĞµÑ€Ğ¾Ğ¿Ñ€Ğ¸ÑÑ‚Ğ¸Ğµ'.encode("utf-8"),
+            'ÔÈÎ',
+            'Ãğóïïà',
+            'GPS',
+            'Ìåğîïğèÿòèå',
         ])
     for part in participants:
         writer.writerow([
-            str(part.fio).encode("cp1251"),
-            str(part.group).encode("cp1251"),
-            str(part.gps).encode("cp1251"),
-            str(part.event).encode("cp1251"),])
+            str(part.fio).decode("cp1251"),
+            str(part.group).decode("cp1251"),
+            str(part.gps).decode("cp1251"),
+            str(part.event).decode("cp1251"),])
     return response
 
 
