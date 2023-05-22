@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (c) 2017 Jeremy Low
-import unicodecsv as csv
+import csv
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user, logout
@@ -117,20 +117,19 @@ def event_to_csv(request, *args, **kwargs):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = f'attachment; filename="{ event.id }.csv"'
 
-    with open(response, encoding="cp1251") as file:
-        writer = csv.writer(response,delimiter=';')
+    writer = csv.writer(response,delimiter=';')
+    writer.writerow([
+            'ФИО'.encode("cp1251"),
+            'Группы'.encode("cp1251"),
+            'GPS'.encode("cp1251"),
+            'Мероприятие'.encode("cp1251"),
+        ])
+    for part in participants:
         writer.writerow([
-                'ФИО',
-                'Группы',
-                'GPS',
-                'Мероприятие',
-            ])
-        for part in participants:
-            writer.writerow([
-                part.fio,
-                part.group,
-                part.gps,
-                part.event,])
+            str(part.fio),
+            str(part.group),
+            str(part.gps),
+            str(part.event),])
     return response
 
 
