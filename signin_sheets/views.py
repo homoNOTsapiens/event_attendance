@@ -116,7 +116,7 @@ def event_to_csv(request, *args, **kwargs):
 
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = f'attachment; filename="{ event.id }.csv"'
-    filename = event.id + '.csv'
+    filename = str(event.id) + '.csv'
     with open (filename,encoding="cp1251"): 
         writer = csv.writer(response,delimiter=';')
         writer.writerow([
