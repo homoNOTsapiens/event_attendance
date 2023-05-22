@@ -114,22 +114,22 @@ def event_to_csv(request, *args, **kwargs):
         return HttpResponseForbidden()
     participants = EventParticipant.objects.all().filter(event=event)
 
-    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = f'attachment; filename="{ event.id }.xslx"'
-    print(participants)
-    writer = csv.writer(response,delimiter=';')
-    writer.writerow([
-            'fio',
-            'group',
-            'gps',
-            'event',
-        ])
-    for part in participants:
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="{ event.id }.csv"'
+    with open ("{event.id}.csv",encoding="cp1251"): 
+        writer = csv.writer(response,delimiter=';')
         writer.writerow([
-            part.fio,
-            part.group,
-            part.gps,
-            part.event,])
+                'ФИО',
+                'Группы',
+                'GPS',
+                'Мероприятие',
+            ])
+        for part in participants:
+            writer.writerow([
+                part.fio,
+                part.group,
+                part.gps,
+                part.event,])
     return response
 
 
