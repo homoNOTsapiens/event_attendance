@@ -118,19 +118,19 @@ def event_to_csv(request, *args, **kwargs):
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = f'attachment; filename="{ event.id }.xslx"'
     print(participants)
-    #writer = csv.writer(response)
-    #writer.writerow([
-    #        'fio',
-    #        'group',
-    #        'gps',
-    #        'event',
-    #    ])
-    #for part in participants:
-    #    writer.writerow([
-    #        part.fio,
-    #        part.group,
-    #        part.gps,
-    #        part.event,])
+    writer = csv.writer(response,delimiter=';')
+    writer.writerow([
+            'fio',
+            'group',
+            'gps',
+            'event',
+        ])
+    for part in participants:
+        writer.writerow([
+            part.fio,
+            part.group,
+            part.gps,
+            part.event,])
     return response
 
 
