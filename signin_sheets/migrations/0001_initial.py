@@ -29,6 +29,7 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(blank=True, max_length=255)),
                 ('gps_loc',models.CharField(blank=True, max_length=255)),
                 ('duration',models.CharField(blank=True, max_length=255)),
+                ('groups',models.CharField(blank=True,max_length=255)),
                 ('event_admin', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

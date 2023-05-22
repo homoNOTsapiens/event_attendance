@@ -3,6 +3,7 @@
 
 # Copyright (c) 2017 Jeremy Low
 import unicodecsv as csv
+import pandas as pd
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user, logout
@@ -40,7 +41,7 @@ class EventCreateView(LoginRequiredMixin, CreateView):
     """Create a new event."""
 
     model = Event
-    fields = ['name','datetime','description','address','gps_loc','duration']
+    fields = ['name','datetime','description','address','gps_loc','duration','groups']
 
     def form_valid(self, form):
         resp = super().form_valid(form)
@@ -114,22 +115,22 @@ def event_to_csv(request, *args, **kwargs):
         return HttpResponseForbidden()
     participants = EventParticipant.objects.all().filter(event=event)
 
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = f'attachment; filename="{ event.id }.csv"'
-
-    writer = csv.writer(response)
-    writer.writerow([
-            'fio',
-            'group',
-            'gps',
-            'event',
-        ])
-    for part in participants:
-        writer.writerow([
-            part.fio,
-            part.group,
-            part.gps,
-            part.event,])
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = f'attachment; filename="{ event.id }.xslx"'
+    print(participants)
+    #writer = csv.writer(response)
+    #writer.writerow([
+    #        'fio',
+    #        'group',
+    #        'gps',
+    #        'event',
+    #    ])
+    #for part in participants:
+    #    writer.writerow([
+    #        part.fio,
+    #        part.group,
+    #        part.gps,
+    #        part.event,])
     return response
 
 
