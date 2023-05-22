@@ -116,7 +116,7 @@ def event_to_csv(request, *args, **kwargs):
 
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = f'attachment; filename="{ event.id }.csv"'
-    print(response)
+    print(f'ROACH{response}')
     with open (response,encoding="cp1251"): 
         writer = csv.writer(response,delimiter=';')
         writer.writerow([
