@@ -121,8 +121,8 @@ def event_to_csv(request, *args, **kwargs):
     writer.writerow([
             'fio',
             'group',
-            'event',
             'gps',
+            'event',
         ])
     for part in participants:
         writer.writerow([
