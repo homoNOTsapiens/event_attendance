@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-16 -*-
+# -*- coding: utf-8 -*-
 
 # Copyright (c) 2017 Jeremy Low
 import csv
