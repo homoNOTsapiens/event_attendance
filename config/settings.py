@@ -36,7 +36,7 @@ LOCALE_PATHS = [
 SECRET_KEY = os.getenv('SECRET_KEY', 'pre-deploy')
 
 DEBUG = False
-
+DEFAULT_CHARSET = 'cp1251'
 
 
 # Application definition
