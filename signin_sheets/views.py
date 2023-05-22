@@ -119,7 +119,7 @@ def event_to_csv(request, *args, **kwargs):
 
     writer = csv.writer(response,delimiter=';')
     writer.writerow([
-            'ФИО'.encode('utf-8').decode('cp1251'),
+            'ФИО'.encode('cp1251').decode('utf-8'),
             'Группа',
             'GPS',
             'Мероприятие',
